@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container pt-3 pb-3">
+    <hr>
+    <p class="text-left">Опубликовано: {{ article.time_create }}</p>
+    <h5 class="h5 text-center">{{ article.title }}</h5>
+    <p>{{ article.content | linebreaksbr }}</p> 
+    {% if article.pdf_file %}
+    <div class="pdf-wrapper">
+        <p class="blockquote"><a href="{% static article.pdf_file.url %}" target="_blank" style="text-decoration: none;">Открыть в отдельном окне</a></p>
+        <embed src="{% static article.pdf_file.url %}"/>
+    </div>
+    {% endif %}
+    <hr>
+</div>
+{% endblock %}

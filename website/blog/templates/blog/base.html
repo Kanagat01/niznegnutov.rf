@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% if title %}
+    <title>{{ title }}</title>
+  {% else %}
+    <title>Администрация Нижнегнутовского Поселение</title>
+  {% endif %}
+
+  <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'blog/css/bootstrap.rtl.min.css' %}">
+  <script src="{% static 'blog/js/bootstrap.bundle.min.js' %}"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-color sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light text-center" href="{% url 'home' %}">Нижнегнутовское<br>Поселения</a>
+      <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-white text-center" href="{% url 'home' %}">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white text-center" href="{% url 'news' %}">Новости</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white text-center" href="{% url 'settlement' %}">Поселение</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white text-center" href="{% url 'decisions' %}">Решения</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white text-center" href="{% url 'regulations' %}">Регламенты</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white text-center" href="{% url 'resolutions' %}">Постановления</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>  
+  <div id="content">{% block content %}{% endblock %}</div>
+  <div class="bg-color sticky-bottom">
+    <footer class="py-3">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="{% url 'self_government' %}" class="nav-link px-2 text-white">Полномочия органов местного самоуправления</a></li>
+        <li class="nav-item"><a href="{% url 'municipal_control' %}" class="nav-link px-2 text-white">Муниципиальный контроль</a></li>
+        <li class="nav-item"><a href="{% url 'prosecutors_info' %}" class="nav-link px-2 text-white">Информация Прокуратуры</a></li>
+        <li class="nav-item"><a href="{% url 'rossreestr_info' %}" class="nav-link px-2 text-white">Информация Россреестра</a></li>
+      </ul>
+      <p class="rights text-center text-white" style="font-size: 12px;">© 2023 Нижнегнутовское сельское поселение Чернышковского муниципального района Волгоградской области.<br>Все права защищены.</p>
+    </footer>
+  </div>
+</body>
+</html>
